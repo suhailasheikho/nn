@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:  Arial, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 body {
@@ -10,121 +10,27 @@ body {
     color: #fff;
     line-height: 1.6;
     overflow-x: hidden; /* Prevent horizontal scrolling */
-    box-sizing: border-box;
-   
+    padding-top: 70px; /* Prevent content from hiding under fixed navbar */
 }
 
-/* Services Section */
-.services {
-   
-        display: flex; /* Makes services container a flex container */
-        justify-content: space-between; /* Adds equal space between items */
-        align-items: stretch; /* Ensures equal height for all items */
-        
-        overflow: hidden;
-        margin-bottom: 0;
-    padding-bottom: 30px;
-    background-color: #333; /* Different background for the services section */
-    padding-top: 40px;
-    }
-.service {
-    flex: 1; /* Allows items to take equal width */
-    margin: 0 1rem; /* Adds spacing between services */
-    padding: 1.5rem; /* Adds space inside each service box */
-    background-color: #333; /* Background for individual services */
-    text-align: center; /* Centers text and icons */
-    
-    color: #fff; /* Text color */
-    transition: transform 0.3s ease; /* Smooth hover effect */ 
-}
-.servicess {
-    display: flex; /* Makes services container a flex container */
-    justify-content: space-between; /* Adds equal space between items */
-    align-items: stretch; /* Ensures equal height for all items */
-    padding: 2rem; /* Adds space around the container */
-    background-color: #1e1e1e; /* Optional background */
-}
-
-.servicesss {
-    flex: 1; /* Allows items to take equal width */
-    margin: 0 1rem; /* Adds spacing between services */
-    padding: 1.5rem; /* Adds space inside each service box */
-    background-color: #1e1e1e; /* Background for individual services */
-    text-align: center; /* Centers text and icons */
-    color: #fff; /* Text color */
-    transition: transform 0.3s ease; /* Smooth hover effect */ 
-}
-
-.service i {
-    font-size: 2rem; /* Icon size */
-    color: red; /* Icon color */
-    margin-bottom: 1rem; /* Space below icon */
-}
-
-.service h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.service p {
-    font-size: 1rem;
-    color: #ddd;
-}
-
-/* Responsive Navbar */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-    }
-
-    nav ul li a {
-        font-size: 1rem;
-    }
-
-    .hero h1 {
-        font-size: 1.5rem;
-    }
-}
-
-/* Header Section */
-
-
-@media (max-width: 768px) {
-    .nav {
-      display: none;
-      flex-direction: column;
-      background-color: #333;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-    }
-}
-@media (max-width: 595px) {
-    .nav {
-      display: none;
-      flex-direction: column;
-      background-color: #333;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-    }}
+/* Fixed Navbar */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #222;
     padding: 1rem 2rem;
-    position: sticky;
+    position: fixed; /* Fixed position */
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
-
 }
 
+/* Logo */
 .logo {
+    display: flex;
+    align-items: center;
     margin-left: 15%;
 }
 
@@ -139,6 +45,12 @@ header {
     color: #fff;
 }
 
+/* Navigation */
+nav {
+    display: flex;
+    align-items: center;
+}
+
 nav ul {
     list-style: none;
     display: flex;
@@ -148,6 +60,7 @@ nav ul {
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-size: 1rem;
     transition: color 0.3s ease;
 }
 
@@ -156,53 +69,46 @@ nav ul li a.active {
     color: red;
 }
 
-.contact-info {
-    color: #fff;
+/* Responsive Navbar */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
 }
 
-
-/* Responsive Navbar */
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 1rem; /* Adjust the gap */
-        text-align: center;
-        padding: 1rem 0;
-    }
-
-    nav ul li a {
-        font-size: 1.2rem; /* Adjust font size */
-    }
-
-    .hero h1 {
-        font-size: 1.5rem;
-    }
-
-    .services {
-        flex-direction: column; /* Stack services vertically */
-        padding: 2rem 0; /* Add padding to top and bottom */
-    }
-
-    .service {
-        margin: 1rem 0; /* Vertical spacing between services */
+    header {
+        padding: 1rem;
     }
 
     .logo {
-        margin-left: 0; /* Center the logo on small screens */
+        margin-left: 0;
         text-align: center;
     }
 
-    .nav {
-        display: flex;
+    /* Hide default menu and show toggle button */
+    nav ul {
+        display: none;
         flex-direction: column;
-        background-color: #333;
         position: absolute;
         top: 60px;
         right: 0;
         width: 100%;
+        background-color: #333;
+        text-align: center;
         padding: 1rem 0;
     }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
 }
+
 
 @media (max-width: 595px) {
     .services {
@@ -225,6 +131,63 @@ nav ul li a.active {
     .logo {
         font-size: 1.3rem; /* Adjust logo font size */
     }
+}
+      
+         /* Services Section */
+.services {
+   
+    display: flex; /* Makes services container a flex container */
+    justify-content: space-between; /* Adds equal space between items */
+    align-items: stretch; /* Ensures equal height for all items */
+    
+    overflow: hidden;
+    margin-bottom: 0;
+padding-bottom: 30px;
+background-color: #333; /* Different background for the services section */
+padding-top: 40px;
+}
+.service {
+flex: 1; /* Allows items to take equal width */
+margin: 0 1rem; /* Adds spacing between services */
+padding: 1.5rem; /* Adds space inside each service box */
+background-color: #333; /* Background for individual services */
+text-align: center; /* Centers text and icons */
+
+color: #fff; /* Text color */
+transition: transform 0.3s ease; /* Smooth hover effect */ 
+}
+.servicess {
+display: flex; /* Makes services container a flex container */
+justify-content: space-between; /* Adds equal space between items */
+align-items: stretch; /* Ensures equal height for all items */
+padding: 2rem; /* Adds space around the container */
+background-color: #1e1e1e; /* Optional background */
+}
+
+.servicesss {
+flex: 1; /* Allows items to take equal width */
+margin: 0 1rem; /* Adds spacing between services */
+padding: 1.5rem; /* Adds space inside each service box */
+background-color: #1e1e1e; /* Background for individual services */
+text-align: center; /* Centers text and icons */
+color: #fff; /* Text color */
+transition: transform 0.3s ease; /* Smooth hover effect */ 
+}
+
+.service i {
+font-size: 2rem; /* Icon size */
+color: red; /* Icon color */
+margin-bottom: 1rem; /* Space below icon */
+}
+
+.service h3 {
+font-size: 1.5rem;
+margin-bottom: 0.5rem;
+}
+
+.service p {
+font-size: 1rem;
+color: #ddd;
 }
 /* Hero Section */
 .hero {
