@@ -20,18 +20,23 @@ header {
     align-items: center;
     background-color: #222;
     padding: 1rem 2rem;
-    position: fixed; /* Fixed position */
+    position: fixed; /* Stays fixed */
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
+    height: 60px; /* Fixed height for consistency */
+}
+
+/* Body Padding to Prevent Overlap */
+body {
+    padding-top: 60px; /* Matches navbar height */
 }
 
 /* Logo */
 .logo {
     display: flex;
     align-items: center;
-    margin-left: 15%;
 }
 
 .logo .tuning {
@@ -64,6 +69,68 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
+nav ul li a:hover,
+nav ul li a.active {
+    color: red;
+}
+
+/* Responsive Navbar */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsive for Tablets & Small Screens */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+        height: 50px;
+    }
+
+    .logo {
+        text-align: center;
+    }
+
+    /* Hide default menu and show toggle button */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 100%;
+        background-color: #333;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Responsive for Phones */
+@media (max-width: 480px) {
+    header {
+        padding: 0.5rem 1rem;
+        height: 45px;
+    }
+
+    .logo .tuning,
+    .logo .website {
+        font-size: 1.2rem; /* Adjust logo size */
+    }
+
+    nav ul li a {
+        font-size: 0.9rem; /* Adjust text size */
+    }
+}
 nav ul li a:hover,
 nav ul li a.active {
     color: red;
