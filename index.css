@@ -89,7 +89,7 @@ nav ul li a.active {
 }
 
 /* Responsive for Small Screens */
-@media (max-width: 768px) {
+@media (max-width: 720px) {
     header {
         padding: 0.2rem 0.5rem; /* Adjust padding */
         height: 30px;
@@ -112,7 +112,7 @@ nav ul li a.active {
 
 
 
-@media (max-width: 595px) {
+@media (max-width: 520px) {
     .services {
         flex-direction: column; /* Stack services vertically */
     }
