@@ -89,7 +89,7 @@ nav ul li a.active {
 }
 
 /* Responsive for Small Screens */
-@media (max-width: 720px) {
+@media (max-width: 768px) {
     header {
         padding: 0.2rem 0.5rem; /* Adjust padding */
         height: 30px;
@@ -112,29 +112,8 @@ nav ul li a.active {
 
 
 
-@media (max-width: 520px) {
-    .services {
-        flex-direction: column; /* Stack services vertically */
-    }
 
-    .service {
-        margin: 1rem 0; /* Add vertical margin */
-        padding: 1rem; /* Reduce padding for smaller screens */
-    }
 
-    .hero h1 {
-        font-size: 1.3rem; /* Adjust font size */
-    }
-
-    nav ul li a {
-        font-size: 1rem; /* Adjust font size */
-    }
-
-    .logo {
-        font-size: 1.3rem; /* Adjust logo font size */
-    }
-}
-      
          /* Services Section */
 .services {
    
@@ -191,6 +170,7 @@ margin-bottom: 0.5rem;
 font-size: 1rem;
 color: #ddd;
 }
+ 
 /* Hero Section */
 .hero {
     height: 75vh;
@@ -1540,43 +1520,151 @@ body {
     background-color: red;
     margin: 0 auto 20px auto;
 }/* Footer Section with Background Image */
+
 .footer-section {
-    background-image: url('images/download\ \(1\).jpeg'); /* Add the path to your background image */
+    background-image: url('images/download (1).jpeg'); /* Corrected image path */
     background-attachment: fixed;
-    background-size: cover; /* Makes the background image cover the entire footer */
-    background-position: center; /* Centers the background image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    padding: 50px 0; /* Adjust padding as needed */
-    position: relative; /* Ensures other content can be layered over the background */
-    z-index: 1; /* Keeps footer elements on top of the background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 0;
+    position: relative;
+    z-index: 1;
     opacity: 0.5;
-    
-
-
-    
+    width: 100%;
 }
-/* Footer Wrapper Flexbox */
+
+/* Footer Wrapper */
 .footer-wrapper {
-    display: flex; /* Aligns all child divs side-by-side */
-    justify-content: space-between; /* Even spacing between items */
-    align-items: flex-start; /* Align content at the top */
-    flex-wrap: nowrap; /* Prevent wrapping onto the next line */
-    gap: 30px; /* Space between divs */
-    margin-left: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap; /* Prevents wrapping on larger screens */
+    gap: 30px;
+    padding: 0 10%;
 }
 
+/* Footer Sections */
 .footer-left,
 .footer-center,
 .footer-menu,
 .footer-right {
-    flex: 1; /* Distributes equal space to each div */
-    min-width: 200px; /* Ensures divs don’t get too small */
-    margin: 10px; /* Removes excess margins */
+    flex: 1;
+    min-width: 250px; /* Prevents them from getting too small */
+    margin: 10px;
 }
 
+/* Footer Logo */
+.footer-left .logo {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-left: 1%;
+}
+
+.footer-left .red {
+    color: red;
+}
+
+/* Footer Button */
+.footer-left .order-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.footer-left .order-button:hover {
+    background-color: darkgreen;
+}
+
+/* Footer Headings */
+.footer-center h4,
+.footer-menu h4,
 .footer-right h4 {
-    color: white; /* Header color for consistency */
+    color: white;
     margin-bottom: 10px;
+}
+
+/* Footer Menu */
+.footer-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-menu ul li {
+    margin-bottom: 5px;
+}
+
+/* Footer Button */
+footer button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+footer button:hover {
+    background-color: darkgray;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Tablets (Max Width: 768px) */
+@media (max-width: 768px) {
+    .footer-wrapper {
+        flex-wrap: wrap; /* Allows items to stack */
+        justify-content: center; /* Centers items */
+        text-align: center;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-menu,
+    .footer-right {
+        flex: 1 1 100%; /* Makes each section take full width */
+        text-align: center;
+    }
+
+    .footer-left .logo {
+        font-size: 1.3rem; /* Reduce logo size */
+    }
+
+    .footer-left .order-button {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile Phones (Max Width: 480px) */
+@media (max-width: 480px) {
+    .footer-section {
+        padding: 30px 0; /* Reduce padding */
+    }
+
+    .footer-wrapper {
+        flex-direction: column; /* Stack elements vertically */
+        text-align: center;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-menu,
+    .footer-right {
+        flex: 1 1 auto;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .footer-left .logo {
+        font-size: 1.2rem;
+    }
+
+    .footer-left .order-button {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+    }
 }
 
 .social-icons {
@@ -1604,42 +1692,6 @@ body {
 }
 
 
-
-
-.footer-left .logo {
-    font-size: 1.8rem;
-    color: #fff;
-    margin-left: 1%;
-}
-
-.footer-left .red {
-    color: red;
-}
-
-.footer-left .order-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: green;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.footer-center h4,
-.footer-menu h4,
-.footer-right h4 {
-    color: white;
-    margin-bottom: 10px;
-}
-
-.footer-menu ul {
-    list-style: none;
-}
-
-.footer-menu ul li {
-    margin-bottom: 5px;
-}
 
 .social-icons {
     display: flex;
@@ -1689,17 +1741,6 @@ body {
     
     
     
-    footer button {
-         /* Gray background for the button */
-         
-        padding: 10px 20px; /* Add padding around the button text */
-        border: none; /* Remove default button border */
-        cursor: pointer; /* Change cursor to pointer when hovering over the button */
-    }
-    
-    footer button:hover {
-        background-color: darkgray; /* Change button color when hovered */
-    }
     
   
 
